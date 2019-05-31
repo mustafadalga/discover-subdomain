@@ -28,12 +28,12 @@ python -m pip install -r .\requirements.txt
 
 #### Kullanım
 
-* Örnek Kullanım1:  
+* ##### Örnek Kullanım1  
 ```
  python .\discoverSubdomain.py -domain google.com 
 ```
 
-* Örnek Kullanım2: 
+* ##### Örnek Kullanım2
 ```
  python .\discoverSubdomain.py -d google.com
 ```
