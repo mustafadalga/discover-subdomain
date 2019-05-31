@@ -10,6 +10,7 @@ class Subdomain():
     def __init__(self):
         self.about()
         self.script_desc()
+        self.subdomain=0
 
     def arguman_al(self):
         parse = OptionParser(description=self.description,epilog=self.kullanim,prog=self.program)
@@ -41,6 +42,7 @@ class Subdomain():
                 url = word + "." + domain
                 response = self.request(url)
                 if response:
+                    self.subdomain+=1
                     print(colored("[+] Keşfedilen subdomain --> ","blue")+ url)
 
 
@@ -56,6 +58,8 @@ class Subdomain():
             self.description = unicode("Hedef domain adresinin subdomainlerini keşfeden  python scripti", "utf8")
             self.kullanim = unicode(self.kullanim,"utf8")
 
+    def result_count(self):
+        print(colored("[+] Toplamda "+ str(self.subdomain)+" tane subdomain bulundu","green"));
 
     def about(self):
         print(colored("#  ____        _       ____                        _       ", "green"))
@@ -80,5 +84,6 @@ try:
     subdomain=Subdomain()
     options=subdomain.arguman_al()
     subdomain.discover(options.domain)
+    subdomain.result_count()
 except KeyboardInterrupt:
     subdomain.keyboardinterrupt_message()
